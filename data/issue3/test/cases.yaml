@@ -1,0 +1,15 @@
+cases:
+  - input:
+      pizza: ["A..","AAA","..."]
+      k: 3
+    output: 3
+
+  - input:
+      pizza: ["A..","AA.","..."]
+      k: 3
+    output: 1
+
+  - input:
+      pizza: ["A..","A..","..."]
+      k: 1
+    output: 1
