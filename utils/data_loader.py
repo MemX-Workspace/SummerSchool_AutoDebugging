@@ -84,6 +84,8 @@ class FixedSolutionLoader:
     def load_fixed_solutions(self) -> List[FixedSolution]:
         fixed_solutions = []
         for json_file in os.listdir(self.out_path):
+            if not json_file.endswith("_fixed.json"):
+                continue
             issue_id = json_file.split("_")[0]
             fixed_solutions.append(self.load_fixed_solution(issue_id))
         return fixed_solutions
