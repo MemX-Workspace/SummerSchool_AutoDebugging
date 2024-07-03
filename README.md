@@ -56,9 +56,9 @@ print(test_results)
 ```
 
 ## 说明
-1. 请仿照`workspace/my_debugger.py`完成对`MyDebugger.fix_issue()`方法的实现
+1. 请在`workspace/my_debugger.py`中完成对`MyDebugger.fix_issue()`方法的实现
 2. 仿照`workspace/main.py`跑通整个流程
-3. 最后提交的文件包括：
+3. 最后提交的`workspace`文件夹中包括：
     - `workspace/my_debugger.py`
     - `workspace/main.py`
     - `workspace/out/`
