@@ -1,6 +1,7 @@
 from typing import List
-from interface.schema import Issue
+from interface.schema import Issue, FixedSolution
 import os
+import json
 
 
 class IssueLoader:
@@ -62,9 +63,30 @@ class TestCaseLoader:
 
     def load_test_cases(self) -> List[Issue]:
         issues = []
-        for issue_id in os.listdir(self.root_path):
-            issues.append(self.load_test_case(issue_id))
+        for issue_dir in os.listdir(self.root_path):
+            issues.append(self.load_test_case(issue_dir))
         return issues
+
+
+class FixedSolutionLoader:
+    def __init__(self, out_path: str = "out"):
+        self.out_path = out_path
+
+    def load_fixed_solution(self, issue_id: str) -> FixedSolution:
+        issue_path = os.path.join(self.out_path, issue_id)
+
+        fixed_solution_path = os.path.join(self.out_path, f"{issue_id}_fixed.json")
+        with open(fixed_solution_path, "r") as f:
+            fixed_solution_dict = json.load(f)
+
+        return FixedSolution(**fixed_solution_dict)
+
+    def load_fixed_solutions(self) -> List[FixedSolution]:
+        fixed_solutions = []
+        for json_file in os.listdir(self.out_path):
+            issue_id = json_file.split("_")[0]
+            fixed_solutions.append(self.load_fixed_solution(issue_id))
+        return fixed_solutions
 
 
 if __name__ == "__main__":

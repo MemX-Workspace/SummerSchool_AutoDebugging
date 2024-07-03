@@ -16,8 +16,9 @@ class DummyDebugger(Debugger):
 if __name__ == "__main__":
     issue = Issue(
         issue_id="0",
+        prefix_code="",
         buggy_code="print('Hello, world!')",
         query="Show 'Hello, world!'",
     )
-    debugger = DummyDebugger()
+    debugger = DummyDebugger(out_path="example/out")
     fixed_solution = debugger.run_with_save(issue)

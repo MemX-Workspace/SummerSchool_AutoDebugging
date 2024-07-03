@@ -1,4 +1,5 @@
 import os
+from typing import List
 import yaml
 import unittest
 from interface.schema import Issue, FixedSolution
@@ -28,26 +29,29 @@ class IssueTester(unittest.TestCase):
             # print(case)
             kwargs = case["input"]
             expected_output = case["output"]
-            result = self.run_test(**kwargs)
+            result = self.run_test(**kwargs)  # call `test_code.py` in issue folder
             self.assertEqual(result, expected_output, case.get("explanation", ""))
 
 
-def suite(fixed_solution: FixedSolution):
+def suite(fixed_solutions: List[FixedSolution]):
     suite = unittest.TestSuite()
-    suite.addTest(IssueTester("runTest", fixed_solution))
+    for fixed_solution in fixed_solutions:
+        suite.addTest(IssueTester("runTest", fixed_solution))
     return suite
 
 
-if __name__ == "__main__":
-    from utils.data_loader import IssueLoader
-
-    issue = IssueLoader().load_issue("issue1")
-
-    fixed_solution = FixedSolution(
-        issue_id="issue1",
-        fixed_code=issue.buggy_code,
-        explanation="Dummy fixer does nothing.",
-    )
+def run_tests(fixed_solutions: List[FixedSolution]):
     runner = unittest.TextTestRunner()
-    res = runner.run(suite(fixed_solution))
+    res = runner.run(suite(fixed_solutions))
+    return res
+
+
+if __name__ == "__main__":
+    from utils.data_loader import FixedSolutionLoader
+
+    fixed_solution = FixedSolutionLoader(out_path="example/out").load_fixed_solution(
+        "issue1"
+    )
+
+    res = run_tests([fixed_solution])
     print(res)
