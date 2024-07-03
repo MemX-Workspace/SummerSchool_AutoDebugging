@@ -14,7 +14,7 @@ cases:
 
   - input:
       lists: []
-    output: [1]
+    output: []
     explanation: No linked lists to merge.
 
   - input:
