@@ -2,8 +2,9 @@ from interface.debugger import Debugger
 from interface.schema import Issue, FixedSolution
 
 
-class DummyDebugger(Debugger):
+class MyDebugger(Debugger):
     def fix_issue(self, issue: Issue) -> FixedSolution:
+        # Implement Here: Call LLM to fix the issue
 
         return FixedSolution(
             issue_id=issue.issue_id,
@@ -19,5 +20,5 @@ if __name__ == "__main__":
         buggy_code="print('Hello, world!')",
         query="Show 'Hello, world!'",
     )
-    debugger = DummyDebugger(out_path="example/out")
+    debugger = MyDebugger(out_path="workspace/out")
     fixed_solution = debugger.run_with_save(issue)

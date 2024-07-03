@@ -16,6 +16,7 @@ pip install -r requirements.txt
 │   ├── out                 # 输出结果
 │   │   ├── issue1_fixed.json   # Debugger输出的修复结果
 │   │   ├── test_results.yaml   # 所有issue的测试结果
+├── workpace/               # 你的工作目录(需要提交)
 ├── utils/
 │   ├── data_loader.py      # 用于加载 issue和 testcases
 │   ├── tester.py           # 用于测试修复后的代码
@@ -55,10 +56,9 @@ print(test_results)
 ```
 
 ## 说明
-1. 复制`example`文件夹，并重命名为`workspace`
-2. 请仿照`example/dummy_debugger.py`实现自己的debugger类，命名为`MyDebugger`
-3. 仿照`example/main.py`跑通整个流程
-4. 最后提交的文件包括：
+1. 请仿照`workspace/my_debugger.py`完成对`MyDebugger.fix_issue()`方法的实现
+2. 仿照`workspace/main.py`跑通整个流程
+3. 最后提交的文件包括：
     - `workspace/my_debugger.py`
     - `workspace/main.py`
     - `workspace/out/`
