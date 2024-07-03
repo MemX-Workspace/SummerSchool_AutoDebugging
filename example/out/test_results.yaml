@@ -1,8 +1,12 @@
 issue1:
   errors: 0
-  failures: 8
+  failures: 7
   run: 8
 issue2:
   errors: 0
   failures: 2
   run: 5
+issue3:
+  errors: 0
+  failures: 1
+  run: 3

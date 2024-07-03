@@ -1,4 +1,10 @@
 # LLM for AutoDebugging
+## 环境配置
+```bash
+# python 3.9
+pip install -r requirements.txt
+```
+
 ## 目录结构
 ```bash
 ├── interface/
@@ -49,9 +55,9 @@ print(test_results)
 ```
 
 ## 说明
-1. 复制`example`文件夹，并重命名为`your_name`
+1. 复制`example`文件夹，并重命名为`workspace`
 2. 请仿照`example/dummy_debugger.py`实现自己的debugger
 3. 仿照`example/main.py`跑通整个流程
 4. 最后提交的文件包括：
-    - `your_name/your_debugger.py`
-    - `your_name/out/`
+    - `workspace/your_debugger.py`
+    - `workspace/out/`
