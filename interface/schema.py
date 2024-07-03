@@ -6,21 +6,13 @@ from pydantic.v1 import BaseModel, Field
 
 
 class Issue(BaseModel):
-    issue_id: str
-    prefix_code: str
-    buggy_code: str  # to be fixed
-    query: str  # question & constraints
+    issue_id: str  # 题号
+    prefix_code: str  # 前缀公共代码
+    buggy_code: str  # 需要修复的代码
+    query: str  # 关于题目的说明（question & constraints）
 
 
 class FixedSolution(BaseModel):
     issue_id: str
-    fixed_code: str
-    explanation: Optional[str]
-
-
-class TestCase(BaseModel):
-    issue_id: str
-    kwargs: dict
-    buggy_code: str
-    query: str  # question & constraints
-    expected_output: str
+    fixed_code: str  # 修复后的代码（对应 Issue.buggy_code）
+    explanation: Optional[str]  # 对bug产生原因的解释（可选）

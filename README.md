@@ -56,8 +56,9 @@ print(test_results)
 
 ## 说明
 1. 复制`example`文件夹，并重命名为`workspace`
-2. 请仿照`example/dummy_debugger.py`实现自己的debugger
+2. 请仿照`example/dummy_debugger.py`实现自己的debugger类，命名为`MyDebugger`
 3. 仿照`example/main.py`跑通整个流程
 4. 最后提交的文件包括：
-    - `workspace/your_debugger.py`
+    - `workspace/my_debugger.py`
+    - `workspace/main.py`
     - `workspace/out/`
